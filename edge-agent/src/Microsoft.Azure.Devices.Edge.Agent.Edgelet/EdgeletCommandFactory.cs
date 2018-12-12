@@ -32,8 +32,8 @@ namespace Microsoft.Azure.Devices.Edge.Agent.Edgelet
         public Task<ICommand> UpdateAsync(IModule current, IModuleWithIdentity next, IRuntimeInfo runtimeInfo) =>
             this.UpdateAsync(Option.Some(current), next, runtimeInfo, false);
 
-        public Task<ICommand> UpdateEdgeAgentAsync(IModuleWithIdentity next, IRuntimeInfo runtimeInfo) =>
-            this.UpdateAsync(Option.None<IModule>(), next, runtimeInfo, true);
+        public Task<ICommand> UpdateEdgeAgentAsync(IModuleWithIdentity module, IRuntimeInfo runtimeInfo) =>
+            this.UpdateAsync(Option.None<IModule>(), module, runtimeInfo, true);
 
         async Task<ICommand> UpdateAsync(Option<IModule> current, IModuleWithIdentity next, IRuntimeInfo runtimeInfo, bool start)
         {
